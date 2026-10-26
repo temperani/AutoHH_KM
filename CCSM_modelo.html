@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Formulário web do Comunicado de Conclusão de Serviços de Manutenção (CCSM).">
+    <title>CCSM — Comunicado de Conclusão</title>
+    <link rel="stylesheet" href="CCSM_modelo.css">
+  </head>
+  <body>
+    <div class="toolbar no-print">
+      <p>Preencha o comunicado e use “Imprimir / salvar PDF” para gerar o documento.</p>
+      <div class="toolbar-actions">
+        <button class="button button-secondary" type="reset" form="ccsm-form">Limpar formulário</button>
+        <button class="button button-primary" type="button" id="print-button">Imprimir / salvar PDF</button>
+      </div>
+    </div>
+
+    <main class="sheet">
+      <form id="ccsm-form">
+        <header class="document-header">
+          <div class="cemig-logo" aria-label="CEMIG Distribuição S.A.">
+            <span>CEMIG</span>
+            <small>Distribuição S.A.</small>
+          </div>
+          <p class="classification">Classificação: Reservado</p>
+          <h1>Comunicado de conclusão de serviços de manutenção</h1>
+        </header>
+
+        <section class="recipient">
+          <label for="destinatario">Para:</label>
+          <input id="destinatario" name="destinatario" aria-label="Destinatário">
+        </section>
+
+        <section class="intro">
+          <label>Eu, <input name="responsavel" aria-label="Nome do responsável" class="line-input" required>,
+            na qualidade de representante da empresa
+            <input name="empresa" aria-label="Empresa" class="line-input" required>
+            e responsável direto pela supervisão da manutenção:</label>
+        </section>
+
+        <section class="panel service-panel">
+          <div class="service-top">
+            <fieldset class="classification-options">
+              <legend class="sr-only">Classificação do serviço</legend>
+              <label><input type="checkbox" name="classificacao" value="NSIR"> NSIR</label>
+              <label><input type="checkbox" name="classificacao" value="NSPR"> NSPR</label>
+              <label><input type="checkbox" name="classificacao" value="NSMC"> NSMC</label>
+              <label><input type="checkbox" name="classificacao" value="OM"> OM</label>
+              <label class="number-field">Nº <input name="numero_servico" aria-label="Número do serviço"></label>
+            </fieldset>
+            <label class="pi-field">PI/Manobra: <input name="pi_manobra" aria-label="PI ou manobra"></label>
+          </div>
+          <div class="service-content">
+            <div class="visit-types">
+              <span>Tipo de comunicado:</span>
+              <label><input type="radio" name="vistoria" value="1"> 1ª vistoria</label>
+              <label><input type="radio" name="vistoria" value="2"> 2ª vistoria</label>
+              <label><input type="radio" name="vistoria" value="3"> 3ª vistoria</label>
+            </div>
+            <div class="location-row">
+              <label class="grow">Local: <input name="local"></label>
+              <label>Data de execução: <input name="data_execucao" type="date"></label>
+            </div>
+            <div class="us-row">
+              <span>Alteração de US:</span>
+              <label><input type="radio" name="alteracao_us" value="Sim"> Sim</label>
+              <label><input type="radio" name="alteracao_us" value="Não"> Não</label>
+              <label class="grow">US Programada <input name="us_programada"></label>
+              <label class="grow">US Executada <input name="us_executada"></label>
+            </div>
+            <div class="instruments">
+              <fieldset>
+                <legend>Nº Alicate de compressão</legend>
+                <input name="alicate_1" aria-label="Alicate de compressão 1">
+                <input name="alicate_2" aria-label="Alicate de compressão 2">
+              </fieldset>
+              <fieldset>
+                <legend>Dinamômetro de Rede: &nbsp; Dinamômetro de Padrão:</legend>
+                <input name="dinamometro_rede" aria-label="Dinamômetro de rede">
+                <input name="dinamometro_padrao" aria-label="Dinamômetro de padrão">
+              </fieldset>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel materials">
+          <h2>Materiais:</h2>
+          <label><input type="checkbox" name="materiais" value="sem-divergencia"> Não existem divergências de quantidade de materiais</label>
+          <label><input type="checkbox" name="materiais" value="com-divergencia"> Existem divergências de quantidade de materiais (Encaminhar formulário Solicitação para Acerto de Divergência de Materiais)</label>
+        </section>
+
+        <section class="panel equipment">
+          <h2>Movimentação de transformador/equipamento:</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Situação</th>
+                  <th>Fabricante</th>
+                  <th>Nº Cia /Fases/Pot</th>
+                  <th>Nº Série</th>
+                  <th>Data de Fabricação</th>
+                  <th>Tipo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Retirado</th>
+                  <td><input name="retirado_fabricante" aria-label="Fabricante do equipamento retirado"></td>
+                  <td><input name="retirado_cia_fases_potencia" aria-label="Número, fases e potência do equipamento retirado"></td>
+                  <td><input name="retirado_serie" aria-label="Número de série do equipamento retirado"></td>
+                  <td><input name="retirado_data_fabricacao" aria-label="Data de fabricação do equipamento retirado"></td>
+                  <td><input name="retirado_tipo" aria-label="Tipo do equipamento retirado"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Instalado</th>
+                  <td><input name="instalado_fabricante" aria-label="Fabricante do equipamento instalado"></td>
+                  <td><input name="instalado_cia_fases_potencia" aria-label="Número, fases e potência do equipamento instalado"></td>
+                  <td><input name="instalado_serie" aria-label="Número de série do equipamento instalado"></td>
+                  <td><input name="instalado_data_fabricacao" aria-label="Data de fabricação do equipamento instalado"></td>
+                  <td><input name="instalado_tipo" aria-label="Tipo do equipamento instalado"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <p class="declaration">
+          Venho comunicar oficialmente à CEMIG, a conclusão da manutenção acima citada. Informo ainda,
+          ter feito uma inspeção técnica na obra e que a mesma foi construída/manutencionada em
+          observância às normas e projetos técnicos fornecidos/aprovados por esse órgão de distribuição.
+          Assim sendo, solicitamos a Vistoria Técnica da mesma.
+        </p>
+
+        <section class="signatures" aria-label="Responsáveis">
+          <div class="signature-line">
+            <label><input name="responsavel_tecnico" aria-label="Responsável técnico"></label>
+            <label><input name="supervisor" aria-label="Supervisor"></label>
+          </div>
+          <div class="signature-caption">
+            <label>Responsável Técnico <input class="short-input" name="data_responsavel" placeholder="____/____/______"></label>
+            <label>CREA: <input class="short-input" name="crea"></label>
+            <label>Supervisor <input class="short-input" name="data_supervisor" placeholder="____/____/______"></label>
+          </div>
+        </section>
+
+        <section class="panel receipt">
+          <label>Recebido pela CEMIG por <input class="line-input" name="recebido_por"> em
+            <input class="short-input" name="data_recebimento" placeholder="____/____/______"></label>
+          <div class="observations">
+            <label for="observacao"><strong>Observação:</strong></label>
+            <textarea id="observacao" name="observacao" maxlength="180" rows="2"></textarea>
+          </div>
+          <p class="deadline"><strong>Prazo de entrega deste comunicado após execução:</strong> NSMC – 01 dia &nbsp;&nbsp;&nbsp; NSPR/NSIR – 03 dias</p>
+        </section>
+
+        <section class="panel inspection">
+          <div class="inspection-row">
+            <span>Serviço vistoriado?</span>
+            <label><input type="radio" name="servico_vistoriado" value="Sim"> Sim</label>
+            <label><input type="radio" name="servico_vistoriado" value="Não"> Não</label>
+            <span class="inspection-label">Vistoria:</span>
+            <label><input type="radio" name="resultado_vistoria" value="Aprovada"> Aprovada</label>
+            <label><input type="radio" name="resultado_vistoria" value="Reprovada"> Reprovada</label>
+          </div>
+          <div class="inspection-row">
+            <span>Alteração de Rede?</span>
+            <label><input type="radio" name="alteracao_rede" value="Sim"> Sim</label>
+            <label><input type="radio" name="alteracao_rede" value="Não"> Não</label>
+          </div>
+          <div class="fiscal-row">
+            <label>Data: <input class="short-input" name="data_fiscal" placeholder="____/____/______"></label>
+            <label>Fiscal: <input name="fiscal"></label>
+            <label>Matrícula: <input name="matricula"></label>
+          </div>
+        </section>
+
+        <footer class="document-footer">Versão: C</footer>
+      </form>
+    </main>
+    <script src="CCSM_modelo.js"></script>
+  </body>
+</html>

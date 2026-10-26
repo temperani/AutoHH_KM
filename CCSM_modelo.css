@@ -1,0 +1,556 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #171717;
+  background: #eceff1;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 14px 40px;
+  font-size: 12px;
+}
+
+.toolbar {
+  max-width: 850px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  color: #39434a;
+  font-size: 14px;
+}
+
+.toolbar p {
+  margin: 0;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 8px;
+  flex: none;
+}
+
+.button {
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button-primary {
+  color: #fff;
+  background: #087d4c;
+}
+
+.button-secondary {
+  color: #31413a;
+  background: #dce5e0;
+}
+
+.sheet {
+  width: min(100%, 850px);
+  min-height: 1100px;
+  margin: 0 auto;
+  padding: 28px 38px 26px;
+  background: #fff;
+  box-shadow: 0 2px 14px #0002;
+}
+
+#ccsm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.document-header {
+  min-height: 55px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 32px auto;
+  align-items: start;
+  column-gap: 12px;
+}
+
+.cemig-logo {
+  color: #138354;
+  width: max-content;
+  line-height: 1;
+}
+
+.cemig-logo span {
+  display: block;
+  font-size: 22px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -1.5px;
+}
+
+.cemig-logo small {
+  display: block;
+  margin-top: 2px;
+  font-size: 6px;
+  font-weight: 700;
+}
+
+.classification {
+  margin: 5px 5px 0 0;
+  font-family: Georgia, serif;
+  font-size: 10px;
+}
+
+h1 {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 3px 8px;
+  color: #fff;
+  background: #858585;
+  font-size: 17px;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.recipient {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  min-height: 24px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.recipient input {
+  flex: 1;
+  border-bottom: 1px solid #888;
+}
+
+.intro {
+  padding: 5px 0 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea {
+  min-width: 0;
+  border: 0;
+  border-bottom: 1px solid #777;
+  border-radius: 0;
+  padding: 2px 3px;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #72b999;
+  outline-offset: 1px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #087d4c;
+  vertical-align: -1px;
+  margin: 0 3px 0 0;
+}
+
+.line-input {
+  width: 44%;
+}
+
+.short-input {
+  width: 92px;
+}
+
+.panel {
+  border: 1px solid #555;
+}
+
+.service-top {
+  min-height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 4px 7px;
+  border-bottom: 1px solid #555;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.classification-options {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.classification-options label {
+  white-space: nowrap;
+}
+
+.number-field input {
+  width: 74px;
+}
+
+.pi-field {
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+.pi-field input {
+  width: 90px;
+}
+
+.service-content {
+  display: grid;
+  gap: 7px;
+  padding: 7px 9px 8px;
+  font-size: 12px;
+}
+
+.visit-types,
+.us-row,
+.location-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.location-row label,
+.us-row label {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.location-row input {
+  flex: 1;
+}
+
+.grow {
+  flex: 1;
+}
+
+.us-row input:not([type="radio"]) {
+  width: 70px;
+}
+
+.instruments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding: 0 4px;
+}
+
+.instruments fieldset {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.instruments legend {
+  width: 100%;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.instruments input {
+  height: 24px;
+  border: 1px solid #333 !important;
+}
+
+.materials {
+  display: grid;
+  gap: 2px;
+  padding: 7px 9px 9px;
+  font-size: 12px;
+}
+
+h2 {
+  margin: 0 0 5px;
+  font-size: 13px;
+}
+
+.materials label {
+  line-height: 1.2;
+}
+
+.equipment {
+  padding: 7px 4px 5px;
+}
+
+.equipment h2 {
+  padding: 0 5px 5px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 12px;
+}
+
+th,
+td {
+  height: 20px;
+  border: 1px solid #888;
+  padding: 1px 4px;
+  text-align: left;
+  font-weight: 400;
+}
+
+thead th {
+  text-align: center;
+}
+
+tbody th {
+  width: 13%;
+}
+
+td {
+  padding: 0;
+}
+
+td input {
+  display: block;
+  width: 100%;
+  height: 19px;
+  border: 0 !important;
+}
+
+.declaration {
+  margin: 0 2px;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: justify;
+}
+
+.signatures {
+  padding: 4px 2px 0;
+}
+
+.signature-line {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 10px;
+}
+
+.signature-line input {
+  width: 100%;
+  height: 17px;
+  border-bottom: 1px solid #777 !important;
+}
+
+.signature-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.receipt {
+  padding: 7px 8px 6px;
+  font-size: 12px;
+}
+
+.observations {
+  display: grid;
+  gap: 3px;
+  min-height: 64px;
+  margin: 7px -8px 0;
+  padding: 7px 8px 3px;
+  border-top: 1px solid #888;
+}
+
+.observations textarea {
+  width: 100%;
+  resize: vertical;
+  border-bottom: 1px solid #888;
+}
+
+.deadline {
+  margin: 5px 0 0;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.inspection {
+  display: grid;
+  gap: 5px;
+  padding: 6px 7px 7px;
+  font-size: 12px;
+}
+
+.inspection-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.inspection-label {
+  margin-left: auto;
+}
+
+.fiscal-row {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr 1fr;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.fiscal-row label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.fiscal-row input:not(.short-input) {
+  flex: 1;
+  width: 100%;
+}
+
+.document-footer {
+  padding-bottom: 3px;
+  border-bottom: 1px solid #888;
+  font-size: 10px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 650px) {
+  body {
+    padding: 12px 8px;
+  }
+
+  .toolbar {
+    align-items: stretch;
+    flex-direction: column;
+    font-size: 13px;
+  }
+
+  .toolbar-actions {
+    justify-content: stretch;
+  }
+
+  .toolbar-actions button {
+    flex: 1;
+    padding: 9px 6px;
+  }
+
+  .sheet {
+    min-height: 0;
+    padding: 20px 14px;
+  }
+
+  h1 {
+    font-size: 14px;
+  }
+
+  .intro {
+    font-size: 12px;
+  }
+
+  .service-top,
+  .visit-types,
+  .location-row,
+  .us-row,
+  .inspection-row {
+    flex-wrap: wrap;
+  }
+
+  .classification-options {
+    flex-wrap: wrap;
+  }
+
+  .instruments {
+    gap: 10px;
+  }
+
+  .signature-caption {
+    flex-wrap: wrap;
+  }
+
+  .deadline {
+    white-space: normal;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+
+@media print {
+  body {
+    padding: 0;
+    background: #fff;
+    font-size: 10pt;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .sheet {
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  #ccsm-form {
+    gap: 7px;
+  }
+
+  .panel,
+  .signatures,
+  .declaration {
+    break-inside: avoid;
+  }
+
+  input,
+  textarea {
+    color: #000 !important;
+    outline: 0 !important;
+  }
+
+  .table-wrap {
+    overflow: visible;
+  }
+}
